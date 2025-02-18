@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Sidebar from '../../components/Sidebar';
+import './Client.css';
+import AddClientModel from "./AddClientModel";
+import AddSupplierModel from "./AddSupplierModel";
+import { Link, useNavigate } from 'react-router-dom';
 
 function ClientSupplierManagement() {
   const [data, setData] = useState([
@@ -17,6 +22,7 @@ function ClientSupplierManagement() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortType, setSortType] = useState("");
   const [sortStatus, setSortStatus] = useState("");
+  const navigate = useNavigate();
 
   // Filter Data Based on Search and Sorting
   const filteredData = data
@@ -50,12 +56,15 @@ function ClientSupplierManagement() {
   };
 
   return (
-    <div>
-      <div id="Data_container">
-        <div id="LeftContent">Left Side bar</div>
-        <div id="RightContent">
+    <>
+      <div className="d-flex">
+        {/* Sidebar */}
+        <div className="sidebar-container">
+            <Sidebar />
+        </div>
+        <div className="content-container flex-grow-1 p-3">
           <div className="container">
-            <h2 className="title">&lt; User Management</h2>
+            <h2 className="title" id="h2Text" onClick={() => navigate("/AdminPanel")}>&lt; Client & Supplier Master Management</h2>
             <div className="header">
               <div>
                 <input
@@ -78,8 +87,13 @@ function ClientSupplierManagement() {
                   <option value="Active">Active</option>
                   <option value="Pending">Pending</option>
                 </select>
-                <button id="btn" onClick={() => addEntry("Client")}>+ Add Client</button>
-                <button id="btn" onClick={() => addEntry("Supplier")}>+ Add Supplier</button>
+                <span id="RightBtns">
+                  <AddClientModel/>
+                  <AddSupplierModel/>
+                </span>
+                
+                {/* <button id="btn" onClick={() => addEntry("Client")}>+ Add Client</button> */}
+                {/* <button id="btn" onClick={() => addEntry("Supplier")}>+ Add Supplier</button> */}
               </div>
             </div>
             <table>
@@ -99,8 +113,8 @@ function ClientSupplierManagement() {
                     <td>{row.type}</td>
                     <td>{row.location}</td>
                     <td>{row.id}</td>
-                    <td className={row.status === "Active" ? "status-active" : "status-pending"}>
-                      {row.status}
+                    <td>
+                      <button className={row.status === "Active" ? "status-active" : "status-pending"}>{row.status}</button>
                     </td>
                   </tr>
                 ))}
@@ -123,7 +137,7 @@ function ClientSupplierManagement() {
           </div>
         </div>  
       </div>
-    </div>
+    </>
   );
 }
 

@@ -5,9 +5,7 @@
 }
 
 #left_content {
-  width: 25%;
-  background-color: #58A4B0;
-  color: white;
+  width: 15%;
   padding: 2rem;
 }
 
@@ -24,15 +22,15 @@
 #inventory_management,
 #client_management,
 #sap_data {
-  width: 45%;
+  width: 40%;
   height: 40%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: left;
   justify-content: center;
   background-color: white;
   border-radius: 10px;
-  margin: 10px;
+  margin: 20px;
   padding: 20px;
   font-size: 18px;
   font-weight: bold;
@@ -52,7 +50,14 @@
 #inventory_management img,
 #client_management img,
 #sap_data img {
-  width: 50%;
-  height: auto;
   margin-top: 10px;
+  width: 250px;
+  height: 250px;
 }
+
+#adminImages{
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+
