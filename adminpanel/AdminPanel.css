@@ -1,0 +1,58 @@
+#continer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+#left_content {
+  width: 25%;
+  background-color: #58A4B0;
+  color: white;
+  padding: 2rem;
+}
+
+#right_content {
+  flex: 1; /* Make right side take full remaining space */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#user_management,
+#inventory_management,
+#client_management,
+#sap_data {
+  width: 45%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer; /* ✅ Add pointer cursor */
+  transition: transform 0.2s;
+}
+
+#user_management:hover,
+#inventory_management:hover,
+#client_management:hover,
+#sap_data:hover {
+  transform: scale(1.05); /* ✅ Add hover effect */
+}
+
+#user_management img,
+#inventory_management img,
+#client_management img,
+#sap_data img {
+  width: 50%;
+  height: auto;
+  margin-top: 10px;
+}
